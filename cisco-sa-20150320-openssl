@@ -1,0 +1,12 @@
+[ ['WebEx Recording Playback Client', 'CSCut45861', None],
+  ['Cisco ACE 30 Application Control Engine Module', 'CSCut46572', None],
+  ['Cisco ACE 4710 Application Control Engine (A5)', 'CSCut46572', None],
+  ['Cisco IP Phone 8800 Series', 'CSCut46199', None],
+  ['Cisco Video Surveillance 3000 Series IP Cameras', 'CSCut46482', ['2.7.0 (30/Jul/2015)']],
+  ['Cisco Video Surveillance 4000 Series High-Definition IP Cameras', 'CSCut46480', ['2.4.6 (30/Jul/2015)']],
+  ['Cisco Video Surveillance 4300E/4500E High-Definition IP Cameras', 'CSCut46481', ['3.2.7 (30/Jul/2015)']],
+  ['Cisco Video Surveillance 6000 Series IP Cameras', 'CSCut46482', ['2.7.0 (30/Jul/2015)']],
+  ['Cisco Video Surveillance 7000 Series IP Cameras', 'CSCut46482', ['2.7.0 (30/Jul/2015)']],
+  ['Cisco Video Surveillance PTZ IP Cameras', 'CSCut46482', ['2.7.0 (30/Jul/2015)']],
+  ['Cisco WebEx Messenger Service', 'CSCut45857', None],
+  ['WebEx Meeting Center', 'CSCut45867', None]]
