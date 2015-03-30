@@ -243,9 +243,21 @@ def process_and_update(url, username, password):
     data['id'] = sa_id
     return update_repo(data, username, password)
 
+def do_all(username, password):
+    advisories = [
+            'cisco-sa-20150320-openssl',
+            'cisco-sa-20150310-ssl',
+            'cisco-sa-20150128-ghost',
+            'cisco-sa-20141222-ntpd',
+            'cisco-sa-20141015-poodle',
+        ]
+    for sa in advisories:
+        process_and_update('http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/' + sa, username, password)
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Cisco SA Helper Script by dev_zzo')
     parser.add_argument('url',
+        nargs='?',
         help='A Cisco advisory URL to process')
     parser.add_argument('--username',
         help='GitHub username to authenticate with')
@@ -253,5 +265,8 @@ if __name__ == '__main__':
         help='GitHub password to authenticate with')
     args = parser.parse_args()
 
-    process_and_update(args.url, args.username, args.password)
+    if args.url is not None:
+        process_and_update(args.url, args.username, args.password)
+    else:
+        do_all(args.username, args.password)
     print('Done!')
