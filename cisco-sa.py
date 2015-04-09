@@ -245,6 +245,7 @@ def process_and_update(url, username, password):
 
 def do_all(username, password):
     advisories = [
+            'cisco-sa-20150408-ntpd',
             'cisco-sa-20150320-openssl',
             'cisco-sa-20150310-ssl',
             'cisco-sa-20150128-ghost',
