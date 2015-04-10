@@ -1,2 +1,14 @@
-[ ['Cisco UCS Central', 'CSCut77422', None],
-  ['IOS-XR for Cisco Network Convergence System (NCS) 6000', 'CSCut77471', ['']]]
+[ ['Cisco WebEx Meetings Server versions 1.x', 'CSCut77389', ['2.5MR4 [15-April-2015]', '2.6 [TBD]']],
+  ['Cisco WebEx Meetings Server versions 2.x', 'CSCut77389', ['2.5MR4 [15-April-2015]', '2.6 [TBD]']],
+  ['Cisco ASA CX and Cisco Prime Security Manager', 'CSCut77532', ['A patch will be released [Aug. 2015]']],
+  ['Cisco Intrusion Prevention System Solutions (IPS)', 'CSCut77568', None],
+  ['Cisco Prime Collaboration Assurance', 'CSCut77459', None],
+  [ 'Cisco Prime License Manager',
+    'CSCut77491',
+    ['10.3 patch 1 (April0 2015)', '10.0 patch 1 (30-April-2015)', '9.8 patch 5 (TBD)']],
+  ['Cisco UCS Central', 'CSCut77422', None],
+  ['Cisco IOS and Cisco IOS XE Software', 'CSCut77619', None],
+  ['Cisco MDS 9000 Series Multilayer Switches', 'CSCut77411', ['TBD']],
+  ['Cisco Nexus 1000V Series Switches', 'CSCut77414', ['5.2(1)SV3(2.1) [August 2015]']],
+  ['Cisco Nexus 7000 Series Switches', 'CSCut77412', ['TBD']],
+  ['IOS-XR for Cisco Network Convergence System (NCS) 6000', 'CSCut77471', None]]
