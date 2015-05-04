@@ -115,10 +115,12 @@ GITHUB_API_BASE = 'https://api.github.com/repos/dev-zzo/cisco-sa-tracker'
 def update_repo(data, username, password):
     # Ref: https://developer.github.com/v3/git/
     
+    s = requests.Session()
+    
     sa_id = data['id']
     text = data['text']
     # Get the latest commit id
-    r = requests.get(GITHUB_API_BASE + '/git/refs/heads/master')
+    r = s.get(GITHUB_API_BASE + '/git/refs/heads/master')
     r.raise_for_status()
     o = r.json()
     if not o['object'] or o['object']['type'] != 'commit':
@@ -126,13 +128,13 @@ def update_repo(data, username, password):
     last_commit_sha = str(o['object']['sha'])
     print('Last master commit: %s' % last_commit_sha)
     # Get the tree ref for that commit
-    r = requests.get(GITHUB_API_BASE + '/git/commits/' + last_commit_sha)
+    r = s.get(GITHUB_API_BASE + '/git/commits/' + last_commit_sha)
     r.raise_for_status()
     o = r.json()
     last_commit_tree = str(o['tree']['sha'])
     print('Last commit tree: %s' % last_commit_tree)
     # Retrieve the tree object
-    r = requests.get(GITHUB_API_BASE + '/git/trees/' + last_commit_tree)
+    r = s.get(GITHUB_API_BASE + '/git/trees/' + last_commit_tree)
     r.raise_for_status()
     o = r.json()
     # Check if the file was in there previously
@@ -141,7 +143,7 @@ def update_repo(data, username, password):
             blob_sha = str(item['sha'])
             print('Last blob: %s' % blob_sha)
             # Check if the content is the same
-            r = requests.get(GITHUB_API_BASE + '/git/blobs/' + blob_sha)
+            r = s.get(GITHUB_API_BASE + '/git/blobs/' + blob_sha)
             r.raise_for_status()
             o = r.json()
             if o['size'] == len(text):
@@ -173,7 +175,7 @@ def update_repo(data, username, password):
         print('Was about to update the repo, but you did not provide credentials to do so.')
         return False
     # Create a new blob with new content
-    r = requests.post(GITHUB_API_BASE + '/git/blobs',
+    r = s.post(GITHUB_API_BASE + '/git/blobs',
         headers={ 'content-type': 'application/json' },
         data=json.dumps({
             'content': text,
@@ -186,7 +188,7 @@ def update_repo(data, username, password):
     new_blob_sha = str(o['sha'])
     print('Created new blob %s' % new_blob_sha)
     # Create a new tree with the new blob pointer
-    r = requests.post(GITHUB_API_BASE + '/git/trees',
+    r = s.post(GITHUB_API_BASE + '/git/trees',
         headers={ 'content-type': 'application/json' },
         data=json.dumps({
             'base_tree': last_commit_tree,
@@ -204,7 +206,7 @@ def update_repo(data, username, password):
     new_tree_sha = str(o['sha'])
     print('Created new tree %s' % new_tree_sha)
     # Create a new commit with the new tree pointer
-    r = requests.post(GITHUB_API_BASE + '/git/commits',
+    r = s.post(GITHUB_API_BASE + '/git/commits',
         headers={ 'content-type': 'application/json' },
         data=json.dumps({
             'message': 'Updating %s (rev. %s)' % (sa_id, data['revision']),
@@ -218,7 +220,7 @@ def update_repo(data, username, password):
     new_commit_sha = str(o['sha'])
     print('Created new commit %s' % new_commit_sha)
     # Update the master branch
-    r = requests.patch(GITHUB_API_BASE + '/git/refs/heads/master',
+    r = s.patch(GITHUB_API_BASE + '/git/refs/heads/master',
         headers={ 'content-type': 'application/json' },
         data=json.dumps({
             'sha': new_commit_sha,
