@@ -8,7 +8,9 @@
   ['Cisco Packet Tracer', 'CSCuv26183', ['7.0 (18-Dec-2015)']],
   ['Cisco Prime Access Registrar', 'CSCuv26150', None],
   ['Cisco Prime Collaboration Deployment', 'CSCuv26283', None],
-  ['Cisco Prime Collaboration Provisioning', 'CSCuv26164', None],
+  [ 'Cisco Prime Collaboration Provisioning',
+    'CSCuv26164',
+    ['10.6 (31-Jul-2015)', '10.5.1 (31-Jul-2015)', '10.0 (31-Jul-2015)', '9.5 (31-Jul-2015)']],
   ['Cisco Prime License Manager', 'CSCuv26185', None],
   ['Cisco Security Manager', 'CSCuv26167', None],
   ['Cisco 910 Industrial Router', 'CSCuv26253', None],
@@ -29,4 +31,6 @@
   ['Cisco Model D9485 DAVIC QPSK', 'CSCuv26259', ['1.2.19 (31-Jul-2015)']],
   ['Cisco TelePresence Conductor', 'CSCuv26172', ['XC4.0 (29-Jul-2015)']],
   ['Cisco Videoscape Control Suite', 'CSCuv33644', ['Patch file available for affected releases (TBD)']],
-  ['Cisco Registered Envelope Service (CRES)', 'CSCuv26099', None]]
+  ['Cisco Registered Envelope Service (CRES)', 'CSCuv26099', ['4.4.1 (1-Aug-2015)']],
+  ['Cisco Universal Small Cell 5000 Series running V3.4.2.x software', 'CSCuv26256', None],
+  ['Cisco Universal Small Cell 7000 Series running V3.4.2.x software', 'CSCuv26256', None]]
